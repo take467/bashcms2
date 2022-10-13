@@ -3,8 +3,8 @@ source "$(dirname $0)/bin/conf"
 
 [ $USER = "root" ]
 
-mkdir -p "$logdir"
-chown www-data:www-data "$logdir" -R
+mkdir -p "$logdir" "$datadir"
+chown www-data:www-data "$logdir" "$datadir" -R
 
 ### INSTALL THIS SYSTEM ###
 rsync -av --delete "$(dirname $0)/bin/" "$appdir/"
@@ -13,10 +13,11 @@ chown www-data:www-data "$appdir" -R
 
 ### RENAME FETCH CGI ###
 cd "$appdir"
-rnd=$(cat /dev/urandom | tr -cd 0-9a-zA-Z | head -c 32)
-[ -e "/home/fuji/rnd" ] && rand="$(cat /home/fuji/rnd )"  # REMOVE LATER
+#rnd=$(cat /dev/urandom | tr -cd 0-9a-zA-Z | head -c 32)
+#[ -e "/home/fuji/rnd" ] && rand="$(cat /home/fuji/rnd )"  # REMOVE LATER
 
-mv "fetch" "fetch_$rnd.cgi"
+# mv "fetch" "fetch_$rnd.cgi"
+mv "fetch" "fetch.cgi"
 
 ### PULL ARTICLE REPO ###
 rm -rf "${contentsdir:?}"
@@ -25,5 +26,5 @@ git clone "https://github.com/$contents_owner/$contents.git"
 
 chown www-data:www-data "$contentsdir" -R
 
-echo "call fetch_$rnd.cgi from GitHub"
+#echo "call fetch_$rnd.cgi from GitHub"
 
