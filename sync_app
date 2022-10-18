@@ -1,0 +1,18 @@
+#!/bin/bash -eux
+source "$(dirname $0)/bin/conf"
+
+[ $USER = "root" ]
+
+### INSTALL THIS SYSTEM ###
+rsync -av --delete "$(dirname $0)/bin/" "$appdir/"
+chown www-data:www-data "$appdir" -R
+
+
+### RENAME FETCH CGI ###
+cd "$appdir"
+#rnd=$(cat /dev/urandom | tr -cd 0-9a-zA-Z | head -c 32)
+#[ -e "/home/fuji/rnd" ] && rand="$(cat /home/fuji/rnd )"  # REMOVE LATER
+
+# mv "fetch" "fetch_$rnd.cgi"
+mv "fetch" "fetch.cgi"
+
