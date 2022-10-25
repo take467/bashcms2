@@ -3,8 +3,8 @@ source "$(dirname $0)/bin/conf"
 
 [ $USER = "root" ]
 
-mkdir -p "$logdir" "$datadir"
-chown www-data:www-data "$logdir" "$datadir" -R
+mkdir -p "$logdir" "$datadir" "$datadir/counters"
+chown www-data:www-data "$logdir" "$datadir" "$datadir/counters" -R
 
 ### INSTALL THIS SYSTEM ###
 rsync -av --delete "$(dirname $0)/bin/" "$appdir/"
