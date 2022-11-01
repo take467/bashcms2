@@ -3,19 +3,50 @@ Content-type: text/html
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta charset="utf-8"/>
 		<title>$title$</title>
-		<meta charset="utf-8" />
+		<link rel="stylesheet" href="/view/default.css" />
+		<meta name="viewpoint" content="width=device-width" />
 	</head>
 	<body>
-		<header>
-			<p>$created_time$</p>
-			<p>views: $views$</p>
-			<p>$nav$</p>
+		<header id="page-header">
+			<hgroup>
+				<h1><a href="/">bashcms2 ブログ</a></h1>
+				<h2>え、また書くんですか？</h2>
+			</hgroup>
+			<nav><ul style="list-style-type:none" >
+				<li><a href="/?page=top">bashcms2とは？</a></li>
+				<li><a href="/?post">作業日誌（ブログ）</a></li>
+				<li><a href="https://github.com/take467/bashcms2">リポジトリ</a></li>
+				<li><a href="https://test.upstomo.com">旧バージョン</a></li>
+			</ul>
+			</nav>
 		</header>
-		$body$
-		<footer>
-			<p>created: $created_time$,modified: $modified_time$,keywords: $Keywords$</p>
-			<p>Copyright: $Copyright$</p>
-		</footer>
+		<article id="article">
+			<header id="article-header">
+				<nav>
+					$nav$<br />
+					created:$created_time$<br />
+					views:$views$
+				</nav>
+			</header>
+			<article id="artile-body">
+				$body$
+			</article>
+			<footer id="article-footer">
+				<nav>
+				created: $created_time$;
+				(last modified: $modified_time$)<bw />
+				views:&nbsp;
+				keywords: $Keywords$
+				</nav>
+			</footer>
+		</article>
+		<aside id="widgets">
+			<aside>ここにサイト内検索などの機能を入れる</aside>
+			<footer id="page-footer">
+				<p>Copyright: $Copyright$</p>
+			</footer>
+		</aside>
 	</body>
 </html>
