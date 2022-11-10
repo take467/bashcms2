@@ -31,7 +31,7 @@ Content-type: text/html
 					views:$views$
 				</nav>
 			</header>
-			<article id="artile-body">
+			<article id="article-body">
 				$body$
 			</article>
 			<footer id="article-footer">
@@ -39,12 +39,14 @@ Content-type: text/html
 				created: $created_time$;
 				(last modified: $modified_time$)<bw />
 				views:&nbsp;
-				keywords: $Keywords$
+				keywords: <span id="keywords">$Keywords$</span>
 				</nav>
 			</footer>
 		</article>
 		<aside id="widgets">
+			<aside id="full-search"></aside>
 			<aside id="last-articles"></aside>
+			<aside id="rank-articles"></aside>
 			<footer id="page-footer">
 				<p>Copyright: $Copyright$</p>
 			</footer>
