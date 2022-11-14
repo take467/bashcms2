@@ -26,5 +26,12 @@ git clone "https://github.com/$contents_owner/$contents.git"
 
 chown www-data:www-data "$contentsdir" -R
 
+touch "$datadir/INIT"
+chown www-data:www-data "$datadir/INIT"
+
+date
+sudo -u www-data CONTENT_LENGTH="" "$appdir/fetch.cgi"
+date
+
 #echo "call fetch_$rnd.cgi from GitHub"
 
